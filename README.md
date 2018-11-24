@@ -9,14 +9,13 @@ sbt-1.2.6.tgz
 ```
 
 2. 解压
-将压缩包解压，mv到开发工具目录
 ```
+# 将压缩包解压，mv到开发工具目录
 /Users/zhaogj/devTools/sbt-1.2.6
 ```
 注：我习惯将所有开发工具都放在devTools目录中
 
 3. 配置环境变量
-
 ```
 # 文件：.bash_profile
 export SBT_HOME=/Users/zhaogj/devTools/sbt-1.2.6

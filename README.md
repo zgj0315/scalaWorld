@@ -1,7 +1,7 @@
 # scala从入门到放弃
-## sbt
-项目有sbt构建
-### sbt安装步骤
+## 1. sbt
+项目由sbt构建
+### 1.1 sbt安装步骤
 1. 官网下载sbt
 ```
 https://www.scala-sbt.org/download.html
@@ -33,4 +33,10 @@ sbt
 [info] sbt server started at local:///Users/zhaogj/.sbt/1.0/server/f5b33b8a2711dfc976e0/sock
 sbt:sbttest> sbtVersion
 [info] 1.2.6
+```
+
+### 1.2 构建一个sbt工程
+```
+直接参看官方文档，写的很详细
+https://www.scala-sbt.org/1.x/docs/sbt-by-example.html
 ```

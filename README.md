@@ -7,12 +7,14 @@
 https://www.scala-sbt.org/download.html
 sbt-1.2.6.tgz
 ```
+
 2. 解压
 将压缩包解压，mv到开发工具目录
 ```
 /Users/zhaogj/devTools/sbt-1.2.6
 ```
 注：我习惯将所有开发工具都放在devTools目录中
+
 3. 配置环境变量
 
 ```
@@ -20,6 +22,7 @@ sbt-1.2.6.tgz
 export SBT_HOME=/Users/zhaogj/devTools/sbt-1.2.6
 export PATH=$PATH:$SBT_HOME/bin
 ```
+
 4. 验证sbt环境
 ```
 rm -rf /Users/zhaogj/tmp/sbtTest

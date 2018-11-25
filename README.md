@@ -40,3 +40,5 @@ sbt:sbttest> sbtVersion
 直接参看官方文档，写的很详细
 https://www.scala-sbt.org/1.x/docs/sbt-by-example.html
 ```
+
+## 2. spark streaming

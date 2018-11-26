@@ -6,7 +6,7 @@ import org.apache.spark.streaming._
 object NetworkWordCount {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount")
-    val ssc = new StreamingContext(conf, Seconds(1))
+    val ssc = new StreamingContext(conf, Seconds(3))
     // Create a DStream that will connect to hostname:port, like localhost:9999
     val lines = ssc.socketTextStream("localhost", 9999)
     // Split each line into words
@@ -20,5 +20,7 @@ object NetworkWordCount {
     wordCounts.print()
     ssc.start() // Start the computation
     ssc.awaitTermination() // Wait for the computation to terminate
+    // cmd for send message
+    // nc -lk 9999
   }
 }

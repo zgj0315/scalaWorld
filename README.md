@@ -41,23 +41,9 @@ sbt:sbttest> sbtVersion
 https://www.scala-sbt.org/1.x/docs/sbt-by-example.html
 ```
 
-## 2. spark streaming
-### 2.1 监听某一端口数据流
-```
-org.after90.sparkStreaming.NetworkWordCount
-
-``` 
-
-## 2.2 Kafka
-### 2.2.1 本地部署kafka
-
-# 部署ZooKeeper
-1. 官网下载
-```zookeeper-3.4.5.tar.gz```
-
-2. 解压缩
-```/Users/zhaogj/devTools/zookeeper-3.4.5```
-
+## 2. 本地部署ZooKeeper
+1. 官网下载```zookeeper-3.4.5.tar.gz```
+2. 解压缩```/Users/zhaogj/devTools/zookeeper-3.4.5```
 3. 修改配置文件
 ```
 # /Users/zhaogj/devTools/zookeeper-3.4.5/conf/zoo.cfg
@@ -65,51 +51,74 @@ tickTime=2000
 dataDir=/Users/zhaogj/devTools/zookeeper-3.4.5/data
 clientPort=2181
 ```
-
 4. 创建数据目录
 ```
 mkdir /Users/zhaogj/devTools/zookeeper-3.4.5/data
 ```
+5. 命令
+```
+bin/zkServer.sh start
+bin/zkServer.sh stop
+bin/zkServer.sh status
+bin/zkCli.sh -server 127.0.0.1:2181
+```
 
-5. 启动
+## 3. 本地部署Kafka
+1. 官网下载```kafka_2.11-0.10.0.1.tgz```
+2. 解压缩```/Users/zhaogj/devTools/kafka_2.11-0.10.0.1```
+3. 修改配置文件
 ```
-/Users/zhaogj/devTools/zookeeper-3.4.5/bin/zkServer.sh start
-/Users/zhaogj/devTools/zookeeper-3.4.5/bin/zkServer.sh stop
-/Users/zhaogj/devTools/zookeeper-3.4.5/bin/zkServer.sh status
+na
+```
+4. 创建数据目录
+```
+na
+```
+5. 命令
+```
+bin/kafka-server-start.sh config/server.properties
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+
 ```
 
-# 部署kafka
-1. 官网下载：kafka_2.11-0.10.0.1.tgz
-2. 解压缩到：
-3. 启动：
+## 4. 本地部署HBase
 
+## 5. spark streaming
+### 5.1 监听某一端口数据流
 ```
-### 2.2.2 写入kafka
+org.after90.sparkStreaming.NetworkWordCount
+
+``` 
+
+
+## 5.2 Kafka
 ```
-todo
-```
-### 2.2.3 读取kafka
-```
-todo
-```
-### 2.2.4 写入kafka+读取kafka
-```
-todo
-```
-## 2.3 HBase
-### 2.3.1 本地部署hbase
+### 5.2.1 写入kafka
 ```
 todo
 ```
-### 2.3.2 写入hbase
+### 5.2.2 读取kafka
 ```
 todo
 ```
-### 2.3.3 读取hbase
+### 5.2.3 写入kafka+读取kafka
 ```
 todo
 ```
-### 2.3.4 写入hbase+读取hbase
+## 5.3 HBase
+
+### 5.3.1 写入hbase
+```
+todo
+```
+### 5.3.2 读取hbase
+```
+todo
+```
+### 5.3.3 写入hbase+读取hbase
 ```
 todo
 ```

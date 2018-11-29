@@ -13,13 +13,16 @@ import org.apache.spark.streaming.Time
 import scala.annotation.tailrec
 import scala.util.control.NonFatal
 
-object KafkaTest extends Logging{
+object KafkaTest extends Logging {
   private var zkUtils: ZkUtils = _
   // Kafka broker server
   private var server: KafkaServer = _
-  def main(args: Array[String]): Unit = {
 
+  def main(args: Array[String]): Unit = {
+    val topic = "topic_zhaogj"
+    createTopic(topic, 1, new Properties())
   }
+
   /** Create a Kafka topic and wait until it is propagated to the whole cluster */
   def createTopic(topic: String, partitions: Int, config: Properties): Unit = {
     AdminUtils.createTopic(zkUtils, topic, partitions, 1, config)
@@ -39,6 +42,7 @@ object KafkaTest extends Logging{
       case _ =>
         false
     }
+
     eventually(Time(10000), Time(100)) {
       assert(isPropagated, s"Partition [$topic, $partition] metadata not propagated after timeout")
     }
@@ -57,6 +61,7 @@ object KafkaTest extends Logging{
     }
 
     val startTime = System.currentTimeMillis()
+
     @tailrec
     def tryAgain(attempt: Int): T = {
       makeAttempt() match {

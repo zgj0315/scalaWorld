@@ -95,6 +95,7 @@ org.after90.sparkStreaming.NetworkWordCount
 
 
 ## 5.2 Kafka
+仔细阅读spark源码中的demo
 ### 5.2.1 写入kafka
 ```
 todo

@@ -1,4 +1,4 @@
-# scala从入门到放弃
+# scala入门
 ## 1. sbt
 项目由sbt构建
 ### 1.1 sbt安装步骤
